@@ -13,7 +13,7 @@ const pets = [
     raza: "Pastor Alemán",
     nombre: "Rosa",
     tamano: "Cachorro",
-    precio: 20000,
+    precio: 25000,
   },
   {
     imagen:
@@ -21,7 +21,7 @@ const pets = [
     raza: "Cocker",
     nombre: "Muñeca",
     tamano: "Adulto",
-    precio: 20000,
+    precio: 40000,
   },
   {
     imagen:
@@ -29,7 +29,7 @@ const pets = [
     raza: "Bulldog francés",
     nombre: "Firulais",
     tamano: "Cachorro",
-    precio: 20000,
+    precio: 30000,
   },
   {
     imagen:
@@ -37,7 +37,7 @@ const pets = [
     raza: "Bulldog",
     nombre: "Eren",
     tamano: "Cachorro",
-    precio: 20000,
+    precio: 35000,
   },
   {
     imagen:
