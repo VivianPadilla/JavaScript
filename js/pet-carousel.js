@@ -58,7 +58,7 @@ function generateCard(imagen, raza, nombre, tamano, precio) {
           <a href="#"><i class="fa fa-retweet"></i></a>
         </li>
         <li>
-          <a href="#"><i class="fa fa-shopping-cart"></i></a>
+          <a onclick="agregarAlCarrito()"><i class="fa fa-shopping-cart"></i></a>
         </li>
       </ul>
     </div>
@@ -86,3 +86,10 @@ for (let pet of petsCarousel) {
   );
 }
 document.getElementById("pet-carousel").innerHTML = petsCarouselList;
+
+let count = 0;
+
+function agregarAlCarrito() {
+  count += 1;
+  document.getElementById("count-pets").innerHTML = count;
+}
