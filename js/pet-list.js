@@ -55,7 +55,7 @@ const pets = [
   },
 ];
 
-function generateCard(imagen, raza, nombre, tamano, precio) {
+function generateCard(id, imagen, raza, nombre, tamano, precio) {
   return `
   <div class="col-lg-4 col-md-6 col-sm-6">
     <div class="product__item"> 
@@ -68,10 +68,7 @@ function generateCard(imagen, raza, nombre, tamano, precio) {
             <a href="#"><i class="fa fa-heart"></i></a>
             </li>
             <li>
-            <a href="#"><i class="fa fa-retweet"></i></a>
-            </li>
-            <li>
-            <a onclick="agregarAlCarrito()"><i class="fa fa-shopping-cart"></i></a>
+            <button id="add-pet-${id}" onclick="agregarAlCarrito(${id},'${nombre}',${precio})"><i class="fa fa-shopping-cart"></i></button>
             </li>
         </ul>
         </div>
@@ -87,10 +84,13 @@ function generateCard(imagen, raza, nombre, tamano, precio) {
   </div>`;
 }
 
+/* list pets*/
+
 let petsList = "";
 
 for (let pet of pets) {
   petsList += generateCard(
+    pet.id,
     pet.imagen,
     pet.raza,
     pet.nombre,
@@ -100,32 +100,51 @@ for (let pet of pets) {
 }
 document.getElementById("container-pets").innerHTML = petsList;
 
-///// añadir productos al carrito
+/* cart pets */
 
-//let carrito = [];
+let count = 0;
+let allPets = [];
 
-// function generarCarrito(id, imagen, nombre, precio) {
-//   const cantidad = carrito.reduce((total, itemId) => {
-//     return itemId == id ? (total += 1) : total;
-//   });
+function agregarAlCarrito(id, nombre, precio) {
+  let total = 0;
+  let allListPets = "";
 
-//   return `
-//   <tr>
-//                     <td class="shoping__cart__item">
-//                       <img src="${imagen}" alt="" />
-//                       <h5>${nombre}</h5>
-//                     </td>
-//                     <td class="shoping__cart__price">$55.00</td>
-//                     <td class="shoping__cart__quantity">
-//                       <div class="quantity">
-//                         <div class="pro-qty">
-//                           <input type="text" value="${cantidad}" />
-//                         </div>
-//                       </div>
-//                     </td>
-//                     <td class="shoping__cart__total">$${precio}</td>
-//                     <td class="shoping__cart__item__close">
-//                       <span class="icon_close"></span>
-//                     </td>
-//                   </tr>`;
-// }
+  /* disabled button click */
+  document.getElementById("add-pet-" + id).disabled = true;
+
+  /* modal */
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Mascota añadida al carrito",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+
+  /* count click cart pets */
+  count += 1;
+  document.getElementById("count-pets").innerHTML = count;
+
+  const cartPets = {
+    id: 1,
+    nombre: nombre,
+    precio: precio,
+  };
+
+  allPets = [...allPets, cartPets];
+  console.log("allPets", allPets);
+
+  const items = (nombre, precio) =>
+    `<div class="contentItem">
+      <p>${nombre}</p>
+      <p>$${precio}</p>
+    </div>`;
+
+  for (let listPet of allPets) {
+    total += listPet.precio;
+    allListPets += items(listPet.nombre, listPet.precio);
+  }
+
+  document.getElementById("cartListPets").innerHTML = allListPets;
+  document.getElementById("total").innerHTML = total;
+}

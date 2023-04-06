@@ -22,7 +22,11 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
+    <link rel="shortcut icon" href="img/logo.jpg">
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -30,53 +34,6 @@
     <div id="preloder">
       <div class="loader"></div>
     </div>
-
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-      <div class="humberger__menu__logo">
-        <a href="#"><img src="img/logo.jpg" alt="" /></a>
-      </div>
-      <div class="humberger__menu__cart">
-        <ul>
-          <li>
-            <a href="#"><i class="fa fa-heart"></i> <span>1</span></a>
-          </li>
-          <li>
-            <a href="/shoping-cart.html"
-              ><i class="fa fa-shopping-bag"></i>
-            >
-          </li>
-        </ul>
-        <div class="header__cart__price">item: <span>$150.00</span></div>
-      </div>
-      <nav class="humberger__menu__nav mobile-menu">
-        <ul>
-          <li class="active"><a href="./index.html">Home</a></li>
-          <li><a href="./index.html">Shop</a></li>
-          <li>
-            <a href="#">Pages</a>
-            <ul class="header__menu__dropdown">
-              <li><a href="./shop-details.html">Shop Details</a></li>
-              <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-              <li><a href="./checkout.html">Check Out</a></li>
-              <li><a href="./blog-details.html">Blog Details</a></li>
-            </ul>
-          </li>
-          <li><a href="./index.html">Blog</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div id="mobile-menu-wrap"></div>
-      <div class="humberger__menu__contact">
-        <ul>
-          <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-          <li>Free Shipping for all Order of $99</li>
-        </ul>
-      </div>
-    </div>
-    <!-- Humberger End -->
-
     <!-- Header Section Begin -->
     <header class="header">
       <div class="container">
@@ -103,13 +60,23 @@
                   <a href="#"><i class="fa fa-heart"></i> <span>1</span></a>
                 </li>
                 <li>
-                  <a href="/shoping-cart.html"
-                    ><i class="fa fa-shopping-bag"></i>
-                    <span id="count-pets"">0</span></a
-                  >
+                  <!-- "/shoping-cart.html" -->
+                  <div class="dropdown show">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-shopping-bag"></i>
+                      <span id="count-pets"">0</span>
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <div id="cartListPets"> </div>
+                      <div id="contentTotal">
+                        <p>Total</p>
+                        <p id="total">$0</p>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               </ul>
-              <div class="header__cart__price">item: <span>$150.00</span></div>
             </div>
           </div>
         </div>
@@ -215,36 +182,9 @@
               </div>
               <div class="sidebar__item">
                 <div class="latest-product__text">
-                  <h4>Latest Products</h4>
+                  <h4>Populares</h4>
                   <div class="latest-product__slider owl-carousel">
-                    <div class="latest-prdouct__slider__item">
-                      <a href="#" class="latest-product__item">
-                        <div class="latest-product__item__pic">
-                          <img src="img/latest-product/lp-1.jpg" alt="" />
-                        </div>
-                        <div class="latest-product__item__text">
-                          <h6>Crab Pool Security</h6>
-                          <span>$30.00</span>
-                        </div>
-                      </a>
-                      <a href="#" class="latest-product__item">
-                        <div class="latest-product__item__pic">
-                          <img src="img/latest-product/lp-2.jpg" alt="" />
-                        </div>
-                        <div class="latest-product__item__text">
-                          <h6>Crab Pool Security</h6>
-                          <span>$30.00</span>
-                        </div>
-                      </a>
-                      <a href="#" class="latest-product__item">
-                        <div class="latest-product__item__pic">
-                          <img src="img/latest-product/lp-3.jpg" alt="" />
-                        </div>
-                        <div class="latest-product__item__text">
-                          <h6>Crab Pool Security</h6>
-                          <span>$30.00</span>
-                        </div>
-                      </a>
+                    <div class="latest-prdouct__slider__item" id="popular_pet">
                     </div>
                     <div class="latest-prdouct__slider__item">
                       <a href="#" class="latest-product__item">
