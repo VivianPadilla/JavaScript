@@ -123,3 +123,7 @@ function eliminarPet(id, nombre, precio) {
   document.getElementById("cartListPets").innerHTML = allListPetsElim;
   document.getElementById("total").innerHTML = total;
 }
+
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(allPets));
+}
