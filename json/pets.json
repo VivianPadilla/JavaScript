@@ -15,7 +15,7 @@
       "raza": "Kohana",
       "nombre": "Pino",
       "tamano": "Cachorro",
-      "precio": 0
+      "precio": 50000
     },
     {
       "id": 3,
@@ -50,7 +50,7 @@
       "raza": "Mestizo",
       "nombre": "Ramon",
       "tamano": "Adulto",
-      "precio": 0
+      "precio": 20000
     },
     {
       "id": 7,
@@ -59,7 +59,7 @@
       "raza": "Mestizo",
       "nombre": "Jin",
       "tamano": "Adulto",
-      "precio": 0
+      "precio": 40000
     },
     {
       "id": 8,
