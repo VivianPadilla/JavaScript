@@ -3710,3 +3710,10 @@ ol {
 	display: flex;
 	justify-content: center;
 }
+
+.btn-close {
+	background-color: #ffffff;
+	border: none;
+	display: flex;
+	padding: 0px 10px;
+}

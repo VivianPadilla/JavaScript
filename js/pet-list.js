@@ -1,4 +1,4 @@
-async function obtenerPets(){
+async function obtenerPets() {
   const resp = await fetch('/json/pets.json');
   const petList = await resp.json();
 
@@ -76,7 +76,7 @@ function agregarAlCarrito(id, nombre, precio) {
   document.getElementById("count-pets").innerHTML = count;
 
   const cartPets = {
-    id: 1,
+    id: id,
     nombre: nombre,
     precio: precio,
   };
@@ -84,17 +84,44 @@ function agregarAlCarrito(id, nombre, precio) {
   allPets = [...allPets, cartPets];
   console.log("allPets", allPets);
 
-  const items = (nombre, precio) =>
+  const items = (id, nombre, precio) =>
     `<div class="contentItem">
       <p>${nombre}</p>
       <p>$${precio}</p>
+      <button type="button" class="btn-close" aria-label="Close" onClick="eliminarPet(${id}, '${nombre}', ${precio})">X</button>
     </div>`;
 
   for (let listPet of allPets) {
     total += listPet.precio;
-    allListPets += items(listPet.nombre, listPet.precio);
+    allListPets += items(listPet.id, listPet.nombre, listPet.precio);
   }
 
   document.getElementById("cartListPets").innerHTML = allListPets;
+  document.getElementById("total").innerHTML = total;
+}
+
+// eliminar pet de la lista del carrito 
+
+function eliminarPet(id, nombre, precio) {
+  let allListPetsElim = "";
+  let total = 0;
+  const position = allPets.map(pet => pet.id).indexOf(id)
+  console.log("position", position);
+  allPets.splice(position, 1);
+  console.log("allPets eliminaaarr", allPets);
+
+  const itemsElim = (id, nombre, precio) =>
+    `<div class="contentItem">
+      <p>${nombre}</p>
+      <p>$${precio}</p>
+      <button type="button" class="btn-close" aria-label="Close" onClick="eliminarPet(${id}, '${nombre}', ${precio})">X</button>
+    </div>`;
+
+  for (let elimPet of allPets) {
+    total += elimPet.precio;
+    allListPetsElim += itemsElim(elimPet.id, elimPet.nombre, elimPet.precio);
+  }
+
+  document.getElementById("cartListPets").innerHTML = allListPetsElim;
   document.getElementById("total").innerHTML = total;
 }

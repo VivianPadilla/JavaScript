@@ -1,9 +1,9 @@
-async function obtenerPetsCarousel(){
-  const resp = await fetch('/json/pets.json');
+async function obtenerPetsCarousel() {
+  const resp = await fetch('/json/petsCarousel.json');
   const petListCarousel = await resp.json();
 
-function generateCard(id, imagen, raza, nombre, tamano, precio) {
-  return `
+  function generateCard(id, imagen, raza, nombre, tamano, precio) {
+    return `
   <div class="col-lg-4">
   <div class="product__discount__item">
     <div
@@ -22,10 +22,10 @@ function generateCard(id, imagen, raza, nombre, tamano, precio) {
     </div>
   </div>
 </div>`;
-}
+  }
 
-function popularPet(imagen, nombre, precio) {
-  return `
+  function popularPet(imagen, nombre, precio) {
+    return `
   <a href="#" class="latest-product__item">
     <div class="latest-product__item__pic">
       <img src="${imagen}" alt="" />
@@ -35,27 +35,27 @@ function popularPet(imagen, nombre, precio) {
       <span>$${precio}</span>
     </div>
   </a>`;
-}
+  }
 
-let petsCarouselList = "";
-let petPopularList = "";
+  let petsCarouselList = "";
+  let petPopularList = "";
 
-for (let pet of petListCarousel) {
-  petsCarouselList += generateCard(
-    pet.id,
-    pet.imagen,
-    pet.raza,
-    pet.nombre,
-    pet.tamano,
-    pet.precio
-  );
-}
-document.getElementById("pet-carousel").innerHTML = petsCarouselList;
+  for (let pet of petListCarousel) {
+    petsCarouselList += generateCard(
+      pet.id,
+      pet.imagen,
+      pet.raza,
+      pet.nombre,
+      pet.tamano,
+      pet.precio
+    );
+  }
+  document.getElementById("pet-carousel").innerHTML = petsCarouselList;
 
-for (let pet of petsCarousel) {
-  petPopularList += popularPet(pet.imagen, pet.nombre, pet.precio);
-}
-document.getElementById("popular_pet").innerHTML = petPopularList;
+  for (let pet of petsCarousel) {
+    petPopularList += popularPet(pet.imagen, pet.nombre, pet.precio);
+  }
+  document.getElementById("popular_pet").innerHTML = petPopularList;
 }
 
 obtenerPetsCarousel();
