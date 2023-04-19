@@ -2,9 +2,9 @@
     {
         "id": 7,
         "imagen":
-        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61TUUBnBDnS.jpg",
-        "raza": "Beagle",
-        "nombre": "Kira",
+        "https://t1.ea.ltmcdn.com/es/razas/4/7/8/gato-kohana_874_0_300_square.webp",
+        "raza": "Kohana",
+        "nombre": "Pino",
         "tamano": "Cachorro",
         "precio": 0
     },
@@ -28,19 +28,19 @@
     },
     {
         "id": 10,
-        "imagen": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bulldog-frances-1536054163.jpg?crop=1.00xw:0.834xh;00.0753xh&resize=980:*",
-        "raza": "Bulldog francés",
-        "nombre": "Firulais",
-        "tamano": "Cachorro",
+        "imagen": "https://t1.ea.ltmcdn.com/es/razas/0/1/2/gato-habana_210_0_300_square.webp",
+        "raza": "Mestizo",
+        "nombre": "Ramon",
+        "tamano": "Adulto",
         "precio": 0
     },
     {
         "id": 11,
         "imagen":
-        "https://i.pinimg.com/564x/fb/6e/02/fb6e027359f4a9fd3fa8438922d74a4d.jpg",
-        "raza": "Bulldog",
-        "nombre": "Eren",
-        "tamano": "Cachorro",
+        "https://t1.ea.ltmcdn.com/es/razas/6/0/2/gato-khao-manee_206_0_300_square.webp",
+        "raza": "Mestizo",
+        "nombre": "Jin",
+        "tamano": "Adulto",
         "precio": 0
     }
 ]

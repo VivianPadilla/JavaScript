@@ -12,9 +12,6 @@ async function obtenerPets() {
           <img src="${imagen}">
           <ul class="product__item__pic__hover">
               <li>
-              <a href="#"><i class="fa fa-heart"></i></a>
-              </li>
-              <li>
               <button id="add-pet-${id}" onclick="agregarAlCarrito(${id},'${nombre}',${precio})"><i class="fa fa-shopping-cart"></i></button>
               </li>
           </ul>
@@ -109,6 +106,7 @@ function eliminarPet(id, nombre, precio) {
   console.log("position", position);
   allPets.splice(position, 1);
   console.log("allPets eliminaaarr", allPets);
+  document.getElementById("add-pet-" + id).disabled = false;
 
   const itemsElim = (id, nombre, precio) =>
     `<div class="contentItem">

@@ -52,27 +52,10 @@ async function obtenerPetsCarousel() {
   }
   document.getElementById("pet-carousel").innerHTML = petsCarouselList;
 
-  for (let pet of petsCarousel) {
+  for (let pet of petListCarousel) {
     petPopularList += popularPet(pet.imagen, pet.nombre, pet.precio);
   }
   document.getElementById("popular_pet").innerHTML = petPopularList;
 }
 
 obtenerPetsCarousel();
-
-// let countCarousel = 0;
-
-// function agregarAlCarrito(id) {
-//   console.log(id);
-//   document.getElementById("add-pet-" + id).disabled = true;
-
-//   Swal.fire({
-//     position: "top-end",
-//     icon: "success",
-//     title: "Mascota añadida al carrito",
-//     showConfirmButton: false,
-//     timer: 1500,
-//   });
-//   countCarousel += 1;
-//   document.getElementById("count-pets").innerHTML = countCarousel;
-// }
